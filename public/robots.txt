@@ -1,0 +1,21 @@
+# CSVLens Robots.txt
+# https://csvlens.app
+
+User-agent: *
+
+# Allow public pages
+Allow: /
+Allow: /about
+Allow: /faq
+Allow: /privacy
+Allow: /terms
+Allow: /login
+
+# Block authenticated/app routes
+Disallow: /app
+Disallow: /app/*
+Disallow: /api/
+Disallow: /api/*
+
+# Sitemap
+Sitemap: https://csvlens.app/sitemap.xml

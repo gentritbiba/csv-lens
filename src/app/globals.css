@@ -1,0 +1,594 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================================
+   DATA OBSERVATORY - Design System
+   A refined, editorial aesthetic inspired by scientific data visualization
+   ============================================================================ */
+
+:root {
+  /* Base radius */
+  --radius: 0.625rem;
+
+  /* Background layers - warm slate tones */
+  --background: #0f1419;
+  --background-elevated: #161b22;
+  --background-muted: #1c2128;
+  --background-subtle: #21262d;
+
+  /* Foreground - cream/warm whites */
+  --foreground: #f0f3f6;
+  --foreground-muted: #9198a1;
+  --foreground-subtle: #656d76;
+
+  /* Cards & Surfaces */
+  --card: #161b22;
+  --card-foreground: #f0f3f6;
+  --card-border: rgba(240, 243, 246, 0.08);
+
+  /* Popovers & Dropdowns */
+  --popover: #1c2128;
+  --popover-foreground: #f0f3f6;
+
+  /* Primary - Warm amber/gold (data accent) */
+  --primary: #f0b429;
+  --primary-foreground: #0f1419;
+  --primary-muted: rgba(240, 180, 41, 0.15);
+
+  /* Secondary */
+  --secondary: #21262d;
+  --secondary-foreground: #c9d1d9;
+
+  /* Muted */
+  --muted: #21262d;
+  --muted-foreground: #656d76;
+
+  /* Accent - Cool teal for contrast */
+  --accent: #58a6ff;
+  --accent-foreground: #0f1419;
+  --accent-muted: rgba(88, 166, 255, 0.12);
+
+  /* Destructive */
+  --destructive: #f85149;
+  --destructive-foreground: #ffffff;
+
+  /* Success */
+  --success: #3fb950;
+  --success-muted: rgba(63, 185, 80, 0.15);
+
+  /* Warning */
+  --warning: #d29922;
+  --warning-muted: rgba(210, 153, 34, 0.15);
+
+  /* Borders */
+  --border: rgba(240, 243, 246, 0.1);
+  --border-strong: rgba(240, 243, 246, 0.16);
+
+  /* Input */
+  --input: rgba(240, 243, 246, 0.08);
+  --input-focus: rgba(240, 180, 41, 0.25);
+
+  /* Ring */
+  --ring: rgba(240, 180, 41, 0.4);
+
+  /* Chart palette - Scientific/Observatory inspired */
+  --chart-1: #f0b429;  /* Gold - primary data */
+  --chart-2: #58a6ff;  /* Blue - secondary */
+  --chart-3: #a371f7;  /* Purple - tertiary */
+  --chart-4: #3fb950;  /* Green - success/positive */
+  --chart-5: #f85149;  /* Red - alert/negative */
+  --chart-6: #79c0ff;  /* Light blue */
+  --chart-7: #d2a8ff;  /* Light purple */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(240, 180, 41, 0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* ============================================================================
+   SCROLLBAR - Refined minimal style
+   ============================================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+  transition: background var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-subtle);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ============================================================================
+   SELECTION - Gold accent
+   ============================================================================ */
+
+::selection {
+  background: rgba(240, 180, 41, 0.3);
+  color: var(--foreground);
+}
+
+/* ============================================================================
+   INPUT STYLES
+   ============================================================================ */
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--foreground-subtle);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Reset button font */
+button {
+  font-family: inherit;
+}
+
+/* ============================================================================
+   RECHARTS CUSTOMIZATION
+   ============================================================================ */
+
+.recharts-surface {
+  overflow: visible;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--border);
+}
+
+.recharts-tooltip-wrapper {
+  z-index: 50;
+}
+
+/* ============================================================================
+   ANIMATIONS - Micro-interactions
+   ============================================================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(240, 180, 41, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(240, 180, 41, 0.15);
+  }
+}
+
+@keyframes pin-hint {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(240, 180, 41, 0);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 12px 2px rgba(240, 180, 41, 0.3);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.25s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-pin-hint {
+  animation: pin-hint 1.5s ease-in-out 2;
+  animation-delay: 0.5s;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--background-subtle) 25%,
+    var(--background-muted) 50%,
+    var(--background-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* ============================================================================
+   CUSTOM COMPONENT STYLES
+   ============================================================================ */
+
+/* Glass effect for elevated surfaces */
+.glass {
+  background: rgba(22, 27, 34, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Gradient border effect */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(240, 180, 41, 0.3),
+    rgba(88, 166, 255, 0.15),
+    rgba(240, 180, 41, 0.1)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Glow effect on focus */
+.focus-glow:focus-within {
+  box-shadow: 0 0 0 1px var(--primary), var(--shadow-glow);
+}
+
+/* Data grid pattern background */
+.data-grid-bg {
+  background-image:
+    linear-gradient(rgba(240, 180, 41, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 180, 41, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Subtle noise texture */
+.noise-texture {
+  position: relative;
+}
+
+.noise-texture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ============================================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================================ */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--foreground-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--primary) 0%, #ffd866 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Monospace for data */
+.font-data {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', ui-monospace, monospace;
+  font-feature-settings: "zero", "ss01", "ss02";
+}
+
+/* ============================================================================
+   STAGGER ANIMATION DELAYS
+   ============================================================================ */
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* ============================================================================
+   INTERACTIVE STATES
+   ============================================================================ */
+
+.interactive {
+  transition: all var(--transition-fast);
+}
+
+.interactive:hover {
+  background-color: var(--background-subtle);
+}
+
+.interactive:active {
+  transform: scale(0.98);
+}
+
+/* Button hover lift effect */
+.hover-lift {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hover-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================================================
+   PROSE CUSTOMIZATION FOR MARKDOWN
+   ============================================================================ */
+
+.prose-observatory {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--accent);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-code: var(--primary);
+  --tw-prose-pre-bg: var(--background-subtle);
+  --tw-prose-pre-code: var(--foreground-muted);
+}
+
+.prose-observatory code {
+  background: var(--primary-muted);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose-observatory code::before,
+.prose-observatory code::after {
+  content: none;
+}
+
+.prose-observatory pre {
+  background: var(--background-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ============================================================================
+   MOBILE-SPECIFIC STYLES
+   ============================================================================ */
+
+/* Haptic feedback visual - active state for touch */
+@media (hover: none) and (pointer: coarse) {
+  .touch-active:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+  }
+}
+
+/* iOS safe area handling */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Slide-in drawer animation */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Bottom nav spring animation */
+@keyframes springUp {
+  0% {
+    transform: translateY(100%);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-slide-out-left {
+  animation: slideOutToLeft 0.25s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-spring-up {
+  animation: springUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Prevent text selection on touch interactions */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Smooth momentum scrolling on iOS */
+.scroll-smooth-ios {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar on mobile but keep functionality */
+@media (max-width: 768px) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Mobile tap highlight customization */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: rgba(240, 180, 41, 0.1);
+  }
+}

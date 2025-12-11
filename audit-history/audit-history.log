@@ -1,0 +1,13 @@
+# Audit History Log
+
+| Timestamp | Commit ID | Description |
+|-----------|-----------|-------------|
+| 20251208-185427 | 012e615 | feat: gate High model behind Pro subscription and consolidate types |
+| 20251205-030914 | f8eaaa3 | feat: update pricing to $12/month and improve SEO |
+| 20251203-042918 | 8fc69af | feat: add Stripe subscriptions, Redis rate limiting, and session persistence |
+| 20251202-163046 | 0d8e012 | feat: add comprehensive testing infrastructure with Vitest |
+| 20251201-164246 | 9eaa0e4 | feat: add Pro model tier and token limit UI with usage tracking |
+| 20251201-051337 | a2368c4 | feat: migrate from OpenAI to Claude SDK with SSE streaming architecture |
+| 20251128-035538 | d0563e3 | feat: add landing page components and design system |
+| 20251127-214034 | 796d558 | fix: harden security and fix critical bugs in token usage and auth |
+| 20251127-205821 | 3703453 | feat: complete workspace rebuild with auth, multi-file support, and deep analysis |

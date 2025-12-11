@@ -1,0 +1,6 @@
+# Audit History Log
+
+20251209-035010-84237e5 | test: fix failing tests after pro tier removal and add @vitest/ui
+20251209-025933-68525e9 | chore: reduce free tier token limit from 150K to 120K
+20251209-005609-7ff86b7 | feat: add Sentry error tracking and monitoring integration
+20251208-033248-b20da7c | content: update SEO and add Product Hunt launch assets

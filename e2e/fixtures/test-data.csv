@@ -1,0 +1,6 @@
+product_id,product_name,category,price,quantity,date
+1,Widget A,Electronics,99.99,150,2024-01-15
+2,Widget B,Electronics,149.99,75,2024-01-16
+3,Gadget X,Home,29.99,300,2024-01-17
+4,Gadget Y,Home,49.99,200,2024-01-18
+5,Tool Z,Tools,79.99,100,2024-01-19

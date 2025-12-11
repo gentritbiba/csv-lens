@@ -1,0 +1,16 @@
+date,product,category,region,sales,quantity,profit
+2024-01-01,Widget A,Electronics,North,1250.00,50,312.50
+2024-01-01,Widget B,Electronics,South,890.00,35,222.50
+2024-01-02,Gadget X,Home,East,450.00,15,112.50
+2024-01-02,Widget A,Electronics,West,1100.00,44,275.00
+2024-01-03,Gadget Y,Home,North,780.00,26,195.00
+2024-01-03,Widget B,Electronics,East,920.00,37,230.00
+2024-01-04,Tool Z,Industrial,South,2100.00,70,525.00
+2024-01-04,Widget A,Electronics,North,1350.00,54,337.50
+2024-01-05,Gadget X,Home,West,520.00,17,130.00
+2024-01-05,Tool Z,Industrial,East,1890.00,63,472.50
+2024-01-06,Widget B,Electronics,North,1050.00,42,262.50
+2024-01-06,Gadget Y,Home,South,680.00,23,170.00
+2024-01-07,Widget A,Electronics,East,1420.00,57,355.00
+2024-01-07,Tool Z,Industrial,West,2340.00,78,585.00
+2024-01-08,Gadget X,Home,North,490.00,16,122.50
